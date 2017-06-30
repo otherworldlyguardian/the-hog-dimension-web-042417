@@ -1,0 +1,17 @@
+@keyframes stop-oscillation {
+	100%  { transform: rotateX(0) rotateY(0) rotateZ(0); }
+}
+
+@keyframes oscillate {
+	0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+	10% { transform: rotateX(2deg) rotateY(2deg) rotateZ(-0.25deg); }
+	20% { transform: rotateX(0deg) rotateY(4deg) rotateZ(0.25deg); }
+	30% { transform: rotateX(-2deg) rotateY(2deg) rotateZ(1deg); }
+	40% { transform: rotateX(-4deg) rotateY(0deg) rotateZ(0.25deg); }
+	50% { transform: rotateX(-2deg) rotateY(-2deg) rotateZ(-0.25deg); }
+	60% { transform: rotateX(0deg) rotateY(-4deg) rotateZ(-1deg); }
+	70% { transform: rotateX(2deg) rotateY(-2deg) rotateZ(-1.25deg); }
+	80% { transform: rotateX(4deg) rotateY(0deg) rotateZ(-1deg); }
+	90% { transform: rotateX(2deg) rotateY(2deg) rotateZ(-0.5deg); }
+	100% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+}

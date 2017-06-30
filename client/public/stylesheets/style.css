@@ -1,0 +1,136 @@
+html {
+  height: 100%;
+}
+body {
+    min-height: 100%;
+    background-size: 50px 50px;
+    background-image: radial-gradient(circle, #900 1px, rgba(25, 25, 25, 200) 1px);
+    pointer-events: none;
+
+}
+
+#container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  min-width: 750px;
+  min-height: 750px;
+  pointer-events: none;
+}
+
+#guide-me {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: #DDDDDD;
+  font-size: 20pt;
+  opacity: .8;
+  z-index: 5;
+  transition: opacity 1s ease-out;
+}
+
+.oscillation-wrapper {
+  margin: 0;
+  transform-style: preserve-3d;
+}
+
+.oscillate {
+  animation: oscillate 40s cubic-bezier(.2,0,.8,1) forwards infinite;
+}
+
+.cube-container {
+  perspective: 10000px;
+  position: fixed;
+  height: 700px;
+  width: 700px;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px;
+  margin-left: -350px;
+}
+
+.cube {
+	position: fixed;
+	width: 700px;
+	height: 700px;
+	transform-style: preserve-3d;
+  pointer-events: all;
+}
+
+.cube div {
+	position: absolute;
+	width: 700px;
+	height: 700px;
+}
+
+.cube-container.vertical .top {
+	transform: rotateX(-270deg) translateY(-175px);
+}
+
+.cube-container.vertical .back {
+	transform: translateZ(-175px) rotateX(180deg);
+}
+
+.cube-container.vertical .bottom {
+	transform: rotateX(-90deg) translateY(175px);
+}
+
+.cubemover {
+	position: absolute;
+	display: inline-block;
+  margin: 0;
+}
+
+.cube-mover-rechts {
+  width: 400px;
+  height: 500px;
+  right: -300px;
+}
+.cube-mover-links {
+  width: 400px;
+  height: 500px;
+  left: -300px;
+}
+.cube-mover-oben {
+  width: 500px;
+  height: 400px;
+  top: -300px;
+}
+.cube-mover-unten {
+  width: 500px;
+  height: 400px;
+  bottom: -300px;
+}
+/*.cube-mover-gegenUeber1 {
+  width: 400px;
+  height: 400px;
+  top: -300px;
+  right: -300px;
+}
+.cube-mover-gegenUeber2 {
+  width: 400px;
+  height: 400px;
+  bottom: -300px;
+  right: -300px;
+}
+.cube-mover-gegenUeber3 {
+  width: 400px;
+  height: 400px;
+  bottom: -300px;
+  left: -300px;
+}
+.cube-mover-gegenUeber4 {
+  width: 400px;
+  height: 400px;
+  top: -300px;
+  left: -300px;
+}*/
+
+.animator-button {
+  position: absolute;
+  border: 10px solid white;
+  height: 100px;
+  width: 100px;
+
+}
