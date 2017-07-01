@@ -1,8 +1,8 @@
 const tileData = {
   title: 'Home (Title)',
-  icon: 'url(sample-media/jeffe.png)',
+  icon: 'url(media/imgs/jeffe.png)',
   style: {
-    backgroundImage: "url(sample-media/jeffe.png)",
+    backgroundImage: "url(media/imgs/jeffe.png)",
     backgroundColor: 'green',
   },
 }

@@ -11,7 +11,7 @@ const faceData = {
   },
   style: {
     sideCSS: {
-      backgroundImage: "url(sample-media/ruby_kitty.jpg)",
+      backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
       borderColor: '#FF7711',
       backgroundColor: 'yellow',
     },

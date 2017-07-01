@@ -11,7 +11,7 @@ const faceData = {
   },
   style: {
     sideCSS: {
-      backgroundImage: "url(sample-media/jeffe.png)",
+      backgroundImage: "url(media/imgs/jeffe.png)",
       backgroundColor: 'grey',
     },
     faceCSS: {
