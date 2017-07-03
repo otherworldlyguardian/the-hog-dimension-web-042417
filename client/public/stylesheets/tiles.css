@@ -1,20 +1,18 @@
 .tile-wrapper {
   position: absolute;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 250px;
   width: 250px;
   top: 50%;
   left: 50%;
   margin-top: -125px;
   margin-left: -125px;
-  pointer-events: all;
   z-index: -5;
   transition: transform 1s ease-in-out;
 }
 
 .tile-wrapper:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
+  z-index: 10;
 }
 
 .tile-content {
@@ -22,14 +20,18 @@
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
-  height: 250px;
-  width: 250px;
-  top: 50%;
-  left: 50%;
-  margin-top: -125px;
-  margin-left: -125px;
-  z-index: -5;
+  height: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  margin-top: inherit;
+  margin-left: inherit;
   pointer-events: all;
+  transition: transform 0.5s ease-in-out;
+}
+
+.tile-content:hover {
+  transform: scale(1.3);
 }
 
 /*.rise {

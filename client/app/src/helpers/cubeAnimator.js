@@ -65,16 +65,16 @@ const tileGroups = [[3, 2, 1, 0], [4, 5, 6, 7]]
 const rTileGroups = [[0, 1, 2, 3], [7, 6, 5, 4]]
 
 const tileVectors = [
-  [254, 0],
-  [254, -254],
-  [0, -254],
-  [-254, -254]
+  [295, 0],
+  [295, -295],
+  [0, -295],
+  [-295, -295]
 ]
 
 const rTileVectors = [
-  [0, -254],
-  [254, -254],
-  [254, 0],
+  [0, -295],
+  [295, -295],
+  [295, 0],
   [0, 0],
 ]
 
@@ -90,13 +90,13 @@ function unfoldTiles(i = 0) {
   // e.g. [1, 2, 3, 4] --> [2, 3, 4] --> [3, 4] --> etc.
   // important to remember it is acting on pairs (there are two unfolding tile groups).
   for (let curr = i; curr < tileVectors.length; curr++) {
-    $(`#tile-${tileGroups[0][curr]}`).transition({
+    $(`#tile-${tileGroups[0][curr]}-wrapper`).transition({
       x: tileVectors[i][0],
       y: tileVectors[i][1],
       duration: 250,
       easing: 'in-out',
     })
-    $(`#tile-${tileGroups[1][curr]}`).transition({
+    $(`#tile-${tileGroups[1][curr]}-wrapper`).transition({
       x: tileVectors[i][0]*-1,
       y: tileVectors[i][1]*-1,
       duration: 250,
@@ -128,13 +128,13 @@ function foldTiles(i = 0) {
   }
 
   for (let curr = 0; curr <= i ; curr++) {
-    $(`#tile-${rTileGroups[0][curr]}`).transition({
+    $(`#tile-${rTileGroups[0][curr]}-wrapper`).transition({
       x: rTileVectors[i][0],
       y: rTileVectors[i][1],
       duration: 250,
       easing: 'in-out',
     })
-    $(`#tile-${rTileGroups[1][curr]}`).transition({
+    $(`#tile-${rTileGroups[1][curr]}-wrapper`).transition({
       x: rTileVectors[i][0]*-1,
       y: rTileVectors[i][1]*-1,
       duration: 250,

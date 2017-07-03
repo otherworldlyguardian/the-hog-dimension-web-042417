@@ -15,8 +15,8 @@ export default class Side extends Component {
       var cubeMovers = ["rechts", "links", "unten", "oben"].map((destinationName, idx) => {
         return <CubeMover key={idx} destinationName={destinationName} onClick={() => this.props.rotateCube(destinationMapper[this.props.sideIdx][destinationName])}/>
       })
-      var animator = (this.props.animator) ? <AnimatorButton onClick={this.props.animator}/> : null
     }
+    var animator = (this.props.animator) ? <AnimatorButton onClick={this.props.animator}/> : null
     const sideName = idxToSide[this.props.sideIdx]
     const {faceCSS, sideCSS} = this.props.sideData.style
     return (
