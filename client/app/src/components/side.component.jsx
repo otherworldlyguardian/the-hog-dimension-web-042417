@@ -11,7 +11,7 @@ export default class Side extends Component {
   }
 
   render() {
-    if (this.props.active) {
+    if (this.props.active && !this.props.isFlat) {
       var cubeMovers = ["rechts", "links", "unten", "oben"].map((destinationName, idx) => {
         return <CubeMover key={idx} destinationName={destinationName} onClick={() => this.props.rotateCube(destinationMapper[this.props.sideIdx][destinationName])}/>
       })

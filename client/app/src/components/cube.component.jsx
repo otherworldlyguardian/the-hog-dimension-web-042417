@@ -78,8 +78,10 @@ export default class Cube extends Component {
     const sides = [...Array(6)].map((_, sideIdx) => {
       const sideData = getSideData(sideIdx)
       const active = this.state.activeSideIdx === sideIdx
+      // TODO no need for this, just pass undefined if undefined...
+      // Can spread operator this out
       if (sideData.animator === 'fold')
-        return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} animator={this.cubeFolder}/>
+        return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} animator={this.cubeFolder} isFlat={this.state.isFlat}/>
       return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} />
     })
 
