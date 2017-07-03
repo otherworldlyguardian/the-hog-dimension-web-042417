@@ -35,17 +35,17 @@ export function setCube(jQCube, vanillaCube) {
   vanillaCube = vanillaCube
 }
 
-function getEndPos(startPos, vector) {
-  return [
-    startPos[0] + vector[0],
-    startPos[1] + vector[1],
-    startPos[2] + vector[2]
-  ]
-}
+// deprecated
+// function getEndPos(startPos, vector) {
+//   return [
+//     startPos[0] + vector[0],
+//     startPos[1] + vector[1],
+//     startPos[2] + vector[2]
+//   ]
+// }
 
 // TODO: there is a better way to tie the cube with the animator (passing lock/unlock seems sloppy slop)
-// this library is incredible and being used (after trying many different options, this was the best because of how it handles accumulating rotations)
-// https://github.com/rstacruz/jquery.transit#readme
+// https://github.com/rstacruz/jquery.transit#readme (after trying many different options, this was the best because of how it handles accumulating rotations)
 export function rotateCube(startIdx, endIdx) {
   if (locked) return false
   lock()
@@ -80,13 +80,11 @@ const rTileVectors = [
 
 //TODO refactor these -- can combine them
 function unfoldTiles(i = 0) {
-
-  // Function is recursive -- this is our end condition (all tiles are in their place)
+  // recursive -- this is our end condition (all tiles are in their place)
   if (i === tileVectors.length) {
     unlock()
     return
   }
-
   // function iterates through the list of tiles, moving from the current tile index to the end of the list.
   // each time it recurs, it is called with the rest of the list of tiles (excluding the one that it started on for this iteration)
   // e.g. [1, 2, 3, 4] --> [2, 3, 4] --> [3, 4] --> etc.
@@ -111,19 +109,21 @@ function unfoldTiles(i = 0) {
   }
 }
 
-function foldTiles(i = 0) {
+function resumeCubeForm() {
+  $(".oscillation-wrapper").addClass("oscillate")
+  $('.cube-container').transition({
+    transform: `scale(1)`,
+    duration: 250,
+    easing: 'in-out',
+    complete: () => { unlock() }
+  })
+}
 
+
+function foldTiles(i = 0) {
   // Function is recursive -- this is our end condition (all tiles are in their place)
   if (i === tileVectors.length) {
-    $(".oscillation-wrapper").addClass("oscillate")
-    $('.cube-container').transition({
-      transform: `scale(1)`,
-      duration: 250,
-      easing: 'in-out',
-      complete: () => {
-        unlock()
-      }
-    })
+    resumeCubeForm()
     return
   }
 

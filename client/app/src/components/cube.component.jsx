@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Side from './sides/side.component.jsx'
+import Side from './side.component.jsx'
 import { getSideData, idxToSide } from "../helpers/sideDataMapper.js"
 import destinationMapper from "../helpers/destinationMapper.js"
 import { setCube, rotateCube, flattenCube, foldCube, locked } from "../helpers/cubeAnimator.js"
 
 export default class Cube extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       activeSideIdx: 0,
-      displayMode: 'folded',
+      isFlat: false,
     }
+    //TODO use babel plugin -- replace these w/ lambdas
     this.cubeFolder = this.cubeFolder.bind(this)
     this.rotateCube = this.rotateCube.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleKeyDownCodeGolf = this.handleKeyDownCodeGolf.bind(this)
+    this.handleKeyDownBoringCompromise = this.handleKeyDownBoringCompromise.bind(this)
+    this.handleKeyDownClassicStahp = this.handleKeyDownClassicStahp.bind(this)
     this.$self = null
     this.domSelf = null
   }
@@ -24,20 +27,31 @@ export default class Cube extends Component {
     this.$self = $(`#${this.props.cubeName}`)
     this.domSelf = document.getElementById(this.props.cubeName)
     setCube(this.$self, this.domSelf)
-    document.addEventListener("keydown", this.handleKeyDown, false)
+    document.addEventListener("keydown", this.handleKeyDownCodeGolf, false) // why is this not attached to a component?
   }
 
   rotateCube(destinationIdx) {
-    if (this.state.displayMode === 'flattened') return
-    console.log(`rotating: ${this.state.activeSideIdx} -> ${destinationIdx}`)
-    // TODO clean this up or put the lock back in the cube and out of controller?
-    if (rotateCube(this.state.activeSideIdx, destinationIdx))
+    if (!this.state.isFlat && rotateCube(this.state.activeSideIdx, destinationIdx))
       this.setState({ activeSideIdx: destinationIdx[0]/1 || destinationIdx })
   }
 
-  handleKeyDown(e) {
-    if (this.state.displayMode === 'folded') {
-      // TODO abstract
+  handleKeyDownCodeGolf(e) {
+    if (!this.state.isFlat)
+      if (e = {87: 'oben', 65: 'links', 83: 'unten', 68: 'rechts'}[e.keyCode])
+        this.rotateCube(destinationMapper[this.state.activeSideIdx][e])
+  }
+
+  handleKeyDownBoringCompromise(e) {
+    const keyRouter = {87: 'oben',
+                       65: 'links',
+                       83: 'unten',
+                       68: 'rechts'}
+    if (this.state.isFlat && keyRouter.hasOwnProperty(e.keyCode))
+        this.rotateCube(destinationMapper[this.state.activeSideIdx][keyRouter[e.keyCode]])
+  }
+
+  handleKeyDownClassicStahp(e) {
+    if (this.state.isFlat) {
       if (e.keyCode === 87 || e.key === "w") {
         this.rotateCube(destinationMapper[this.state.activeSideIdx]['oben'])
       } else if (e.keyCode === 65 || e.key === "a") {
@@ -51,21 +65,19 @@ export default class Cube extends Component {
   }
 
   cubeFolder() {
-    if (this.state.displayMode === 'folded' && !locked) {
+    if (!this.state.isFlat && !locked) {
       flattenCube()
-      this.setState({ displayMode: 'flattened' })
-    } else if (this.state.displayMode === 'flattened' && !locked) {
+      this.setState({ isFlat: true })
+    } else if (this.state.isFlat && !locked) {
       foldCube()
-      this.setState({ displayMode: 'folded' })
+      this.setState({ isFlat: false })
     }
   }
 
   render() {
-    // temporary sides
     const sides = [...Array(6)].map((_, sideIdx) => {
-      let sideData = getSideData(sideIdx)
-      let active = this.state.activeSideIdx === sideIdx
-      //TODO better way of assignment here
+      const sideData = getSideData(sideIdx)
+      const active = this.state.activeSideIdx === sideIdx
       if (sideData.animator === 'fold')
         return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} animator={this.cubeFolder}/>
       return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} />

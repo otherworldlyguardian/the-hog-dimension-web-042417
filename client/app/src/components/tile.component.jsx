@@ -14,23 +14,32 @@ export default class Tile extends Component {
 
   componentDidMount() {
     this.$self = $(`#tile-${this.props.tileIdx}`)
+    this.$float = $(`#tile-${this.props.tileIdx}-float`)
     this.domSelf = document.getElementById(`tile-${this.props.tileIdx}`)
-    console.log(this.$self, this.domSelf)
   }
 
   handleMouseOver() {
-      console.log('IN!', this.$self)
+    // have raise wrapper because its throwing fit re: stacked css animations. add/remove class on that may be easiest
+    this.$float.addClass("rise")
+  //   $("#logo").click(function() {
+  //   // not gonna work
+  //   $(this).removeClass("run-animation").addClass("run-animation");
+  // });
   }
 
   handleMouseOut() {
     console.log('OUT!', this.$self)
+    this.$float.removeClass("rise")
+
   }
 
   render() {
     const style = this.props.tileData.style
     return (
-      <div id={`tile-${this.props.tileIdx}`} className="tile" style={style} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
-        <h1>Imatile {`${this.props.tileIdx}`}</h1>
+      <div id={`tile-${this.props.tileIdx}-float`}>
+        <div id={`tile-${this.props.tileIdx}`} className="tile" style={style} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
+          <h1>Imatile {`${this.props.tileIdx}`}</h1>
+        </div>
       </div>
     )
   }

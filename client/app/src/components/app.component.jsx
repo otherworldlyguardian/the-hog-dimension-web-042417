@@ -23,8 +23,7 @@ export default class App extends Component {
       localStorage.setItem("repeatVisit", true)
     }
     const tiles = [...Array(8)].map((_, tileIdx) => {
-      let tileData = getTileData(tileIdx)
-      return <Tile key={tileIdx} tileIdx={tileIdx} tileData={tileData} />
+      return <Tile key={tileIdx} tileIdx={tileIdx} tileData={getTileData(tileIdx)} />
     })
 
     return (

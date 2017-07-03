@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import CubeMover from '../cubeMover.component.jsx'
-import AnimatorButton from '../animatorButton.component.jsx'
-import destinationMapper from '../../helpers/destinationMapper.js'
-import { idxToSide } from '../../helpers/sideDataMapper.js'
+import CubeMover from './cubeMover.component.jsx'
+import AnimatorButton from './animatorButton.component.jsx'
+import destinationMapper from './../helpers/destinationMapper.js'
+import { idxToSide } from '../helpers/sideDataMapper.js'
 
 export default class Side extends Component {
   constructor() {

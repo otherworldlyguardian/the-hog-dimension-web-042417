@@ -12,3 +12,12 @@
   z-index: -5;
   pointer-events: all;
 }
+
+.rise {
+  animation: rise 1s forwards;
+}
+
+@keyframes rise {
+	0% { transform: scale(1); }
+	100% { transform: scale(2); }
+}
