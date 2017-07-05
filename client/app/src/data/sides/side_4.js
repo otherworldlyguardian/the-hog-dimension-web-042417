@@ -1,9 +1,6 @@
 const faceData = {
-  sideType: 'standard',
-  title: 'Home (Title)',
-  shortScrip: 'Home (ShortScrip)',
-  longScrip: 'Home (LongScrips)',
-  linkUrls: '',
+  linkTitle: 'UN-beh-LEAVE-A-BULL!',
+  linkUrl: 'https://www.youtube.com/watch?v=leHeXqFIQgc',
   media: {
     imgs: [],
     videos: '',

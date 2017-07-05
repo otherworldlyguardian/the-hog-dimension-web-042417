@@ -1,8 +1,5 @@
 const faceData = {
   sideType: 'standard',
-  title: 'Home (Title)',
-  shortScrip: 'Home (ShortScrip)',
-  longScrip: 'Home (LongScrips)',
   linkUrls: '',
   animator: 'fold',
   media: {
@@ -12,7 +9,7 @@ const faceData = {
   },
   style: {
     sideCSS: {
-      backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
+      backgroundImage: "",
       borderColor: '#FF7711',
       backgroundColor: 'purple',
     },

@@ -6,9 +6,6 @@ import destinationMapper from './../helpers/destinationMapper.js'
 import { idxToSide } from '../helpers/sideDataMapper.js'
 
 export default class Side extends Component {
-  constructor() {
-    super()
-  }
 
   render() {
     if (this.props.active && !this.props.isFlat) {
@@ -18,10 +15,15 @@ export default class Side extends Component {
     }
     var animator = (this.props.animator) ? <AnimatorButton onClick={this.props.animator}/> : null
     const sideName = idxToSide[this.props.sideIdx]
+    const data = this.props.sideData
     const {faceCSS, sideCSS} = this.props.sideData.style
     return (
       <div id={`${sideName}-side`} className="side" style={sideCSS}>
         <div id={`${sideName}-face`} className="face" style={faceCSS}>
+          {data.title ? <h1>{data.title}</h1> : null}
+          {data.linkUrl ? <a href={data.linkUrl} target="_blank">{data.linkTitle}</a> : null}
+          {data.longScrip ? <p>{data.longScrip}</p> : null}
+          {data.shortScrip ? <h3>{data.shortScrip}</h3> : null}
           {animator}
           {cubeMovers}
         </div>

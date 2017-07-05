@@ -1,8 +1,8 @@
 const tileData = {
-  title: 'Home (Title)',
-  icon: 'url(media/imgs/jeffe.png)',
+  title: 'Galaxy Note',
+  bwImg: '/media/imgs/hogs/profiles/bw/galaxy_note.png',
+  colourImg: '/media/imgs/hogs/profiles/colour/galaxy_note.png',
   style: {
-    backgroundImage: "url(media/imgs/jeffe.png)",
     backgroundColor: 'green',
   },
 }

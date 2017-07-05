@@ -12,7 +12,7 @@ export default class CubeMover extends Component {
   render() {
     const cssClasses = `cubemover cube-mover-${this.props.destinationName}`
     return (
-      <h1 className={cssClasses} onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}></h1>
+      <h4 className={cssClasses} onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}></h4>
     )
   }
 }

@@ -1,8 +1,8 @@
 const tileData = {
-  title: 'Home (Title)',
-  icon: 'url(media/imgs/jeffe.png)',
+  title: 'Bay of Pigs',
+  bwImg: '/media/imgs/hogs/profiles/bw/bay_of_pigs.png',
+  colourImg: '/media/imgs/hogs/profiles/colour/bay_of_pigs.png',
   style: {
-    backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
     backgroundColor: 'green',
   },
 }

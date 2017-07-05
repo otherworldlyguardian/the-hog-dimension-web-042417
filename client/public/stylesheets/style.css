@@ -6,7 +6,6 @@ body {
     background-size: 50px 50px;
     background-image: radial-gradient(circle, #900 1px, rgba(25, 25, 25, 200) 1px);
     pointer-events: none;
-
 }
 
 #container {
@@ -127,10 +126,43 @@ body {
   left: -300px;
 }*/
 
-.animator-button {
+#animator-button {
   position: absolute;
-  border: 10px solid white;
-  height: 100px;
-  width: 100px;
+  display: block;
+  margin: auto;
+  background-size: cover;
+  object-fit: contain;
+  border-radius: 20px;
+  animation: colorShiftImg 5s alternate infinite;
+}
 
+#animator-button:hover {
+  animation: faceMelt 5s alternate infinite;
+}
+
+@keyframes faceMelt {
+  0%   { background: #FF1111; box-shadow: 0 0 200px 175px #FF1111; }
+  20%  { background: #FFFF15; box-shadow: 0 0 200px 175px #FFFF15; }
+  40%  { background: #1177ff; box-shadow: 0 0 200px 175px #1177ff; }
+  60%  { background: #FF9922; box-shadow: 0 0 200px 175px #FF9922; }
+  80%  { background: #22ff22; box-shadow: 0 0 200px 175px #22ff22; }
+  100% { background: #11FFFF; box-shadow: 0 0 200px 175px #11FFFF; }
+}
+
+@keyframes colorShiftImg {
+  0%   { filter: drop-shadow(0px 0px 50px #FF1111); }
+  20%  { filter: drop-shadow(0px 0px 50px #FFFF15); }
+  40%  { filter: drop-shadow(0px 0px 50px #1177FF); }
+  60%  { filter: drop-shadow(0px 0px 50px #FF9922); }
+  80%  { filter: drop-shadow(0px 0px 50px #22ff22); }
+  100% { filter: drop-shadow(0px 0px 50px #11FFFF); }
+}
+
+@keyframes bigColorShiftImg {
+  0%   { filter: drop-shadow(0px 0px 50px 200px #FF1111); }
+  20%  { filter: drop-shadow(0px 0px 50px 200px #FFFF15); }
+  40%  { filter: drop-shadow(0px 0px 50px 200px #1177FF); }
+  60%  { filter: drop-shadow(0px 0px 50px 200px #FF9922); }
+  80%  { filter: drop-shadow(0px 0px 50px 200px #22ff22); }
+  100% { filter: drop-shadow(0px 0px 50px 200px #11FFFF); }
 }

@@ -1,8 +1,8 @@
 const tileData = {
-  title: 'Home (Title)',
-  icon: 'url(media/imgs/jeffe.png)',
+  title: 'Trouble',
+  bwImg: '/media/imgs/hogs/profiles/bw/trouble.png',
+  colourImg: '/media/imgs/hogs/profiles/colour/trouble.png',
   style: {
-    backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
     backgroundColor: 'green',
   },
 }

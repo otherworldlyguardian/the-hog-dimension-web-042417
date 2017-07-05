@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import Cube from './cube.component.jsx'
 import Tile from './tile.component.jsx'
-import Background from './background.component.jsx'
 import activateGuide from '../helpers/guideMe.js'
 import { getTileData } from '../helpers/tileDataMapper.js'
 
@@ -13,6 +12,11 @@ export default class App extends Component {
       activeFaceIdx: 0,
       defaultCube: 'home-cube',
     }
+  }
+
+  componentDidMount() {
+    console.log('starting background fog')
+    require('../helpers/fogEffect.js')
   }
 
   render() {
@@ -29,6 +33,7 @@ export default class App extends Component {
     return (
       <div>
         {guide}
+        <canvas id="c"></canvas>
         <Cube cubeName={this.state.defaultCube} />
         {tiles}
       </div>

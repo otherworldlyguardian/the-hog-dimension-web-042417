@@ -1,10 +1,12 @@
+// TODO dynamic require is easiest here
+
 import tile0 from '../data/tiles/tile_0.js'
 import tile1 from '../data/tiles/tile_1.js'
 import tile2 from '../data/tiles/tile_2.js'
 import tile3 from '../data/tiles/tile_3.js'
 import tile4 from '../data/tiles/tile_4.js'
 import tile5 from '../data/tiles/tile_5.js'
-import tile6 from '../data/tiles/tile_5.js'
+import tile6 from '../data/tiles/tile_6.js'
 import tile7 from '../data/tiles/tile_7.js'
 
 export const getTileData = (idx) => {

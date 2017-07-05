@@ -1,8 +1,8 @@
 const tileData = {
-  title: 'Home (Title)',
-  icon: 'url(media/imgs/jeffe.png)',
+  title: 'Leggo My Eggo',
+  bwImg: '/media/imgs/hogs/profiles/bw/leggo_my_eggo.png',
+  colourImg: '/media/imgs/hogs/profiles/colour/leggo_my_eggo.png',
   style: {
-    backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
     backgroundColor: 'green',
   },
 }

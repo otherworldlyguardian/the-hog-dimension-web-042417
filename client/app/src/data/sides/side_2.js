@@ -1,8 +1,7 @@
 const faceData = {
   sideType: 'standard',
-  title: 'Home (Title)',
-  shortScrip: 'Home (ShortScrip)',
-  longScrip: 'Home (LongScrips)',
+  title: 'My friend',
+  shortScrip: 'Here is my friend Rachel. She is from Maine! Neat!',
   linkUrls: '',
   media: {
     imgs: [],
@@ -11,7 +10,7 @@ const faceData = {
   },
   style: {
     sideCSS: {
-      backgroundImage: "url(media/imgs/ruby_kitty.jpg)",
+      backgroundImage: "url(media/imgs/rach.png)",
       borderColor: '#FF7711',
       backgroundColor: 'green',
     },
