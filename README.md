@@ -9,3 +9,4 @@ If you jump right in to the React client with the intention of implementing the 
 Take a moment digesting the structure in context of the features we want to implement before making changes. Our goal here is to be like surgeons: we want to blend the new features in with the existing structure quickly and effectively. In order to do this, we will assume the colloquialism: "Measure twice, cut once", or as the long winded programming alternative goes: "Architect twice, fix errors still, but half as many". After all, we want to complete this as soon as possible so the world can have our hogsperience.
 
 You will find a README.md in both the client and server directories describing deliverables for each.
+Our server's seed data (porkers_data.json) is located in this directory.

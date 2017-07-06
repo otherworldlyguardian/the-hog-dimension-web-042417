@@ -1,5 +1,5 @@
 (if in Atom, 'ctrl + shift + m' will display markdown format)
-# The Hog Dimension
+# The Hog Dimension - React Client
 This react app will serve as the client and UX for our rails API driven hog experience. You may notice that create-react-app was not used in this project. Take a look at the webpack.config file and familiarize yourself with the entry and build locations. Following that, take a peak at our package.json file.
 
   A side effect of not using create-react-app means we need to implement our own 'script' aliases for both automatically rebuilding our bundle as well as exposing our port that we want to listen for requests on. As the 'scripts' portion of package.json stands now, we will need to run both 'watch' as well as 'start' to make a hospitable developing environment.
@@ -25,7 +25,8 @@ This react app will serve as the client and UX for our rails API driven hog expe
 
   5. In our 'tiled'/'unfolded' view (after we click the glowing pig) we are going to incorporate our hogs api. You will notice we are providing only hog mugshots right now. We also have each hog's name in the same place its 'img' ref is kept, but we are not using it yet. All other data will be fetched from our rails api.
   - In addition to the hog profile photos on each tile, their name should be displayed. Make a decision on what this should look like (maybe a tooltip, maybe an overlay). As long as the hog name is comfortable to read.
-  - When a user clicks on an individual hog tile we want a nice large [modal](https://en.wikipedia.org/wiki/Modal_window) that displays all the additional information about that specific hog that exists on our API. Implement this however you see fit - a new component seems like a good starting place.
+  - When a user clicks on an individual hog tile we want a nice large [modal](https://en.wikipedia.org/wiki/Modal_window) that displays all the additional information about that specific hog that exists on our API.  Implement this however you see fit - a new component seems like a good starting place.
+  - Communication with the rails API must use JWT!
 
   While we could simply fetch all the data from the API when the react app starts up, we know that eventually this will be a hogsperience with over 10k viewable hogs. In anticipation of having more data that we are willing to serve in bulk, we want to ensure a hog's data is only served once the user has provided an indication that they want to access it.
 
