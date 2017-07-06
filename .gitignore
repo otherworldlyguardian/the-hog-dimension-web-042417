@@ -1,8 +1,0 @@
-todo.txt
-logs
-*.log
-npm-debug.log*
-node_modules
-.npm
-todo.md
-raw-assets
