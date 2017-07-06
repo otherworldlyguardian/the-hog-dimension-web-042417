@@ -9,20 +9,21 @@ This react app will serve as the client and UX for our rails API driven hog expe
   We are using [express.js](https://expressjs.com/) (in index.js) to catch all root requests ('/') to the port we are exposing (localhost:5000) and redirect them to our build output location. This is just like our router in rails/sinatra, but for node! We are also catching all endpoints that we don't know how to handle and sending them to a custom 404 page (Provide any bad endpoint to see it). As far as Node.js backend middleware/frameworks go, Express is the most known name. You shouldn't have to make any changes to this file.
 
 ## Deliverables:
-  1. First things first -- that background is cool, but it's giving me a hot potato! Unless you are running a L33T MLG gamer rig you may want to disable it while we are developing. Let's make it so neither the canvas element, nor the script that starts it, executes. Potato still cooking? Disable that gif!
 
-  2. Currently, whenever we want to start developing, we have to run two separate bash commands to watch and serve our bundle. That's just crazy! In package.json let's add an additional alias to 'scripts' that both 'watches' as well as 'starts' our index.js file. In bash, we can use '&' to execute multiple processes in a non-blocking manner.
+  1. First things first -- familiarize yourself with the component structure of the application. There are a lot of moving parts here, and we want to be able to isolate the few areas where we are going to add features.
 
-  3. Familiarize yourself with the component structure of the application. There are a lot of moving parts here, and we want to be able to isolate the few areas where we are going to add features.
+  2. That background is cool, but it's giving me a hot potato! Unless you are running a L33T MLG gamer rig you may want to disable it while we are developing. Let's make it so neither the canvas element, nor the script that starts it, executes. Potato still cooking? Disable that poo gif!
+
+  3. Currently, whenever we want to start developing, we have to run two separate bash commands to watch and serve our bundle. That's just crazy! In package.json let's add an additional alias to 'scripts' that both 'watches' as well as 'starts' our index.js file. In bash, we can use '&' to execute multiple processes in a non-blocking manner.
 
   4. [While Jeff Goldblum is indeed larger than life](https://www.youtube.com/watch?v=vTZCjCYsytM), this app is about our love for hogs, not the best actor of our generation. Let's replace some of the content on the cube faces with the following:
     - FRONT: A picture of yourself and your name
     - LEFT SIDE: A short blurb on why *you* in particular love hogs
-    - RIGHT SIDE: Provide some kind of indicator what our glowing pig is linking to (click the pig to see)
+    - RIGHT SIDE: Provide some kind of indicator what our glowing pig is linking to (click the pig to see!)
 
     **These should all be relatively minor changes. Make sure to familiarize yourself with how the sides are resolving their data/css before starting on these!**
 
-  5. In our 'tiled'/'unfolded' (after we click the glowing pig) view we are going to incorporate our hogs api. You will notice we are providing only only hog mugshots right now. We also have each hog's name in the same place its img ref is kept, but we are not using it yet. All other data will be fetched from our rails api.
+  5. In our 'tiled'/'unfolded' view (after we click the glowing pig) we are going to incorporate our hogs api. You will notice we are providing only hog mugshots right now. We also have each hog's name in the same place its 'img' ref is kept, but we are not using it yet. All other data will be fetched from our rails api.
   - In addition to the hog profile photos on each tile, their name should be displayed. Make a decision on what this should look like (maybe a tooltip, maybe an overlay). As long as the hog name is comfortable to read.
   - When a user clicks on an individual hog tile we want a nice large [modal](https://en.wikipedia.org/wiki/Modal_window) that displays all the additional information about that specific hog that exists on our API. Implement this however you see fit - a new component seems like a good starting place.
 
@@ -36,7 +37,7 @@ This react app will serve as the client and UX for our rails API driven hog expe
         - would this work if we simply assigned a new variable name?
         - how would 'use strict' affect this?
       2. 'handleKeyDownBoringCompromise'
-        - how can I learn to forgive myself for creating this function?
+        - how can I learn to forgive myself for creating this?
       3. 'handleKeyDownClassicStahp'
         - does the '||' check serve any purpose if the event is always passing both regardless in Chrome?
 
@@ -50,4 +51,6 @@ This react app will serve as the client and UX for our rails API driven hog expe
 
   4. Our tile slide out animation is cool, but what we really want to do is provide an effect that makes it appear as though our cube is 'unfolding', instead of tiles sliding out. Implement this for a new side. Check out our helpers/cubeAnimator.js file for an idea where to get started.
 
-  5. While our current application has the skeleton for a 'rotate to opposite end' feature, it is not currently hooked or completely implemented. Incorporate the ability for our cube to rotate to the opposite face without altering current functionality.
+  5. While our current application has the skeleton for a 'rotate to opposite end' feature, it is not completely implemented. Incorporate the ability for our cube to rotate to the opposite face without altering current functionality.
+
+  6. On our server side, we want to return the correct 4XX error if the user provides an incorrect JWT token. Which 4XX error is appropriate? If this happens, we want to render either a 4XX error page or component for the user.

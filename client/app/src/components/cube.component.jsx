@@ -12,21 +12,19 @@ export default class Cube extends Component {
       activeSideIdx: 0,
       isFlat: false,
     }
-    //TODO use babel plugin -- replace these w/ lambdas
+    // TODO use babel plugin -- replace these w/ lambdas
     this.cubeFolder = this.cubeFolder.bind(this)
     this.rotateCube = this.rotateCube.bind(this)
     this.handleKeyDownCodeGolf = this.handleKeyDownCodeGolf.bind(this)
     this.handleKeyDownBoringCompromise = this.handleKeyDownBoringCompromise.bind(this)
     this.handleKeyDownClassicStahp = this.handleKeyDownClassicStahp.bind(this)
     this.$self = null
-    this.domSelf = null
   }
 
-  //todo: would be better to associate the controller with the object than pass all the references
+  // TODO would be better to associate the controller with the object than pass all the references
   componentDidMount() {
     this.$self = $(`#${this.props.cubeName}`)
-    this.domSelf = document.getElementById(this.props.cubeName)
-    setCube(this.$self, this.domSelf)
+    setCube(this.$self)
     document.addEventListener("keydown", this.handleKeyDownCodeGolf, false) // why is this not attached to a component?
   }
 
@@ -78,8 +76,7 @@ export default class Cube extends Component {
     const sides = [...Array(6)].map((_, sideIdx) => {
       const sideData = getSideData(sideIdx)
       const active = this.state.activeSideIdx === sideIdx
-      // TODO no need for this, just pass undefined if undefined...
-      // Can spread operator this out
+      // TODO this could be abstracted better
       if (sideData.animator === 'fold')
         return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} animator={this.cubeFolder} isFlat={this.state.isFlat}/>
       return <Side key={idxToSide[sideIdx]} sideIdx={sideIdx} active={active} sideData={sideData} rotateCube={this.rotateCube} />

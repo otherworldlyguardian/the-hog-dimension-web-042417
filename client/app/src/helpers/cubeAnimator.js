@@ -1,7 +1,13 @@
+
 import cubeConfig from '../config/cubeConfig.js'
 import rotationMapper from './rotationMapper.js'
 
-/* Cube side indexes are as follows:
+/* We are using this library (after trying out different options, this was the best because of how it handles accumulating rotations)
+ * https://github.com/rstacruz/jquery.transit#readme
+ *
+ * Given more time, I would make a react component class meant for animation with things like locked() built into the class structure.
+ *
+ * Cube side indexes are as follows:
  *  front: 0
  *  right: 1
  *   left: 2
@@ -19,7 +25,6 @@ import rotationMapper from './rotationMapper.js'
 */
 
 var $cube = null
-var vanillaCube = null
 export var locked = false
 
 function lock() {
@@ -30,22 +35,10 @@ function unlock() {
   locked = false
 }
 
-export function setCube(jQCube, vanillaCube) {
+export function setCube(jQCube) {
   $cube = jQCube
-  vanillaCube = vanillaCube
 }
 
-// deprecated
-// function getEndPos(startPos, vector) {
-//   return [
-//     startPos[0] + vector[0],
-//     startPos[1] + vector[1],
-//     startPos[2] + vector[2]
-//   ]
-// }
-
-// TODO: there is a better way to tie the cube with the animator (passing lock/unlock seems sloppy slop)
-// https://github.com/rstacruz/jquery.transit#readme (after trying many different options, this was the best because of how it handles accumulating rotations)
 export function rotateCube(startIdx, endIdx) {
   if (locked) return false
   lock()
@@ -78,7 +71,7 @@ const rTileVectors = [
   [0, 0],
 ]
 
-//TODO refactor these -- can combine them
+// These could be refactored
 function unfoldTiles(i = 0) {
   // recursive -- this is our end condition (all tiles are in their place)
   if (i === tileVectors.length) {
@@ -109,21 +102,10 @@ function unfoldTiles(i = 0) {
   }
 }
 
-function resumeCubeForm() {
-  $(".oscillation-wrapper").addClass("oscillate")
-  $('.cube-container').transition({
-    transform: `scale(1)`,
-    duration: 250,
-    easing: 'in-out',
-    complete: () => { unlock() }
-  })
-}
-
-
 function foldTiles(i = 0) {
   // Function is recursive -- this is our end condition (all tiles are in their place)
   if (i === tileVectors.length) {
-    resumeCubeForm()
+    resumeCubeAnimation()
     return
   }
 
@@ -145,6 +127,16 @@ function foldTiles(i = 0) {
       }
     })
   }
+}
+
+function resumeCubeAnimation() {
+  $(".oscillation-wrapper").addClass("oscillate")
+  $('.cube-container').transition({
+    transform: `scale(1)`,
+    duration: 250,
+    easing: 'in-out',
+    complete: () => { unlock() }
+  })
 }
 
 export function flattenCube() {

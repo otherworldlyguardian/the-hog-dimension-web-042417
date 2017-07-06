@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
 
 const ColourFadeImg = ({colourImg, bwImg}) => (
       <div className="on-hover-bundle-wrapper">
