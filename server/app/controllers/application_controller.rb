@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   private
 
   def issue_token payload
+
   end
 
   def authorize_user!
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::API
   end
 
   def secret
-    "gottalovehogs"
+    "gottareallylovehogs"
   end
 
   def algorithm
